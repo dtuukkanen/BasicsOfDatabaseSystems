@@ -6,8 +6,8 @@ CREATE TABLE User (
 );
 
 CREATE TABLE Tweet (
-    TweetID INT PRIMARY KEY,
-    UserID INT,
+    TweetID INT NOT NULL PRIMARY KEY,
+    UserID INT NOT NULL,
     Content VARCHAR(200),
     FOREIGN KEY(UserID) REFERENCES User(UserID)
 );
@@ -15,8 +15,8 @@ CREATE TABLE Tweet (
 CREATE TABLE Comments (
     CommentID INT NOT NULL PRIMARY KEY,
     UserID INT NOT NULL,
-    TweetID INT,
-    FK_CommentID INT,
+    TweetID,
+    FK_CommentID,
     Content VARCHAR(200),
     FOREIGN KEY(UserID) REFERENCES User(UserID),
     FOREIGN KEY(TweetID) REFERENCES Tweet(TweetID),
@@ -24,7 +24,7 @@ CREATE TABLE Comments (
 );
 
 CREATE TABLE Hashtag (
-    HashtagID INT NOT NULL PRIMARY KEY,
+    HashtagID INT PRIMARY KEY,
     Content VARCHAR(50)
 );
 
